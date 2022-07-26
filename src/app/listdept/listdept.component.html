@@ -1,0 +1,28 @@
+<div class="container">
+    <h4 class="text-danger">Department Listing</h4>
+    <br>
+    <a [routerLink]="['/add']">New Department</a>
+     <div class="jumbotron">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dept of deptlist">
+                    <td>{{dept.id}}</td>
+                    <td>{{dept.name}}</td>
+                    <td>{{dept.location}}</td>
+                    <td>
+                        <a [routerLink]="['/find/',dept.id]">Details</a>&nbsp;&nbsp;&nbsp;
+                        <a [routerLink]="['/edit/',dept.id]">Edit</a>&nbsp;&nbsp;&nbsp;
+                        <a [routerLink]="['/delete/',dept.id]">Delete</a>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+     </div>
+</div>

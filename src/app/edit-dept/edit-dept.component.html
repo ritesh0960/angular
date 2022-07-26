@@ -1,0 +1,44 @@
+<h1>Editing new Department</h1>
+<form (ngSubmit)="SaveDept(deptdata)" #deptForm="ngForm">
+    <table>
+        <tr>
+            <td>
+                <label for="id">Enter Id</label>
+            </td>
+            <td>
+                <input type="number" id="id" name="id"[(ngModel)]="deptdata.id" required #id="ngModel" readonly/>
+            </td>
+          
+        </tr>
+        <tr>
+            <td>
+                <label for="name">Enter Department Name:</label>
+            </td>
+            <td>
+                <input type="text" id="name" name="name" required [(ngModel)]="deptdata.name" #name="ngModel">
+            </td>
+            <td>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" style="color:red">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is Required
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="location">Enter Location</label>
+            </td>
+            <td>
+                <input type="text" id="location" name="location" [(ngModel)]="deptdata.location" #location="ngModel">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="save" [disabled]="!deptForm.valid" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+</form>
+
